@@ -87,6 +87,10 @@ const PersonProto = {
   calcAge() {
     console.log(2037 - this.birthYear);
   },
+  init(firstName, birthYear) {
+    this.firstName = firstName;
+    this.birthYear = birthYear;
+  },
 };
 
 // Create new object under steven's name
@@ -102,6 +106,6 @@ steven.calcAge();
 console.log(steven.__proto__);
 
 const sarah = Object.create(PersonProto);
-sarah.name = 'Sarah';
-sarah.birthYear = 2000;
+sarah.init('Sarah', 2000);
+
 sarah.calcAge();
