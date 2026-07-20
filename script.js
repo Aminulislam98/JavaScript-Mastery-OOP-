@@ -46,3 +46,25 @@ bmw.accelerate();
 bmw.accelerate();
 bmw.accelerate();
 bmw.brake();
+
+// class constructor
+class PersonCl {
+  constructor(firstName, birthYear) {
+    this.firstName = firstName;
+    this.birthYear = birthYear;
+  }
+  // Method will be added to prototype
+  calcAge() {
+    console.log(2026 - this.birthYear);
+  }
+  greet() {
+    console.log(`Hey ${this.firstName}`);
+  }
+}
+const islam = new PersonCl('islam', 2003);
+islam.calcAge();
+
+// PersonCl.prototype.greet = function () {
+//   console.log(`Hey ${this.firstName}`);
+// };
+islam.greet();
