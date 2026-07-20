@@ -109,3 +109,19 @@ const sarah = Object.create(PersonProto);
 sarah.init('Sarah', 2000);
 
 sarah.calcAge();
+
+// Exercise
+class CarCL {
+  constructor(make, speed) {
+    this.make = make;
+    this.speed = speed;
+  }
+  accelerate() {
+    this.speed += 10;
+    console.log(`${this.make} is going at ${this.speed} km/h`);
+  }
+  brake() {
+    this.speed -= 5;
+    console.log(`${this.make} is going at ${this.speed} km/h`);
+  }
+}
