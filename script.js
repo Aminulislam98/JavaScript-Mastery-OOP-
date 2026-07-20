@@ -138,3 +138,37 @@ console.log(ford.speedUS);
 ford.brake();
 ford.speedUS = 50;
 console.log(ford);
+
+// Inheritance  Between 'Classed": Constructor Functions
+const Person1 = function (firstName, birthYear) {
+  this.firstName = firstName;
+  this.birthYear = birthYear;
+};
+
+Person1.prototype.calcAge = function () {
+  console.log(2026 - this.birthYear);
+};
+
+const Student = function (firstName, birthYear, course) {
+  Person1.call(this, firstName, birthYear);
+  this.course = course;
+};
+console.log('before', Student.prototype);
+
+// Linking prototypes
+Student.prototype = Object.create(Person1.prototype);
+
+console.log('After', Student.prototype);
+
+Student.prototype.introduce = function () {
+  console.log(
+    `hey, I am ${this.firstName} and I am currently studying at ${this.course}`,
+  );
+};
+
+const mike = new Student('Mike', 1999, 'Computer Science');
+console.log(mike);
+
+mike.introduce();
+mike.calcAge();
+console.log(mike.__proto__.__proto__);
