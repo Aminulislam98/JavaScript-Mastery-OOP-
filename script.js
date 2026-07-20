@@ -81,3 +81,27 @@ const account = {
 };
 account.latest = 50;
 console.log(account.movements);
+
+// Object Create
+const PersonProto = {
+  calcAge() {
+    console.log(2037 - this.birthYear);
+  },
+};
+
+// Create new object under steven's name
+const steven = Object.create(PersonProto);
+console.log(steven);
+
+// Added properties
+steven.name = 'Steven';
+steven.birthYear = 2002;
+
+// Calling calcAge and console
+steven.calcAge();
+console.log(steven.__proto__);
+
+const sarah = Object.create(PersonProto);
+sarah.name = 'Sarah';
+sarah.birthYear = 2000;
+sarah.calcAge();
