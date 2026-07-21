@@ -188,3 +188,32 @@ const steve = Object.create(PersonProto1);
 console.log(steve);
 const StudentProto = Object.create(PersonProto1);
 const jay = Object.create(StudentProto);
+
+// Another class example
+class Account {
+  constructor(owner, currency, pin) {
+    this.owner = owner;
+    this.currency = currency;
+    this.pin = pin;
+    this.movements = [];
+    this.locale = navigator.language;
+    console.log(`Thanks for opening an account, ${this.owner}`);
+  }
+
+  deposit(val) {
+    this.movements.push(val);
+  }
+  withdraw(val) {
+    this.deposit(-val);
+  }
+}
+
+const acc1 = new Account('Aminul', 'GBP', 1111);
+acc1.movements.push(250);
+acc1.movements.push(-140);
+
+// Good Practice;
+acc1.deposit(12);
+acc1.withdraw(23);
+
+console.log(acc1);
