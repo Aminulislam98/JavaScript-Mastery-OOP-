@@ -174,7 +174,7 @@ mike.calcAge();
 console.log(mike.__proto__.__proto__);
 
 // Inheritance Between Classes : Object.create
-const PersonProto = {
+const PersonProto1 = {
   calcAge() {
     console.log(2026 - this.birthYear);
   },
@@ -183,6 +183,8 @@ const PersonProto = {
     this.birthYear = birthYear;
   },
 };
-const steve = Object.create(PersonProto);
-const StudentProto = Object.create(PersonProto);
+const steve = Object.create(PersonProto1);
+
+console.log(steve);
+const StudentProto = Object.create(PersonProto1);
 const jay = Object.create(StudentProto);
