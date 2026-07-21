@@ -191,30 +191,48 @@ const jay = Object.create(StudentProto);
 
 // Another class example
 class Account {
+  locale = navigator.language;
+  bank = 'Bankist';
+  // # make field private that can not be accessed
+  // Encapsulation: Private class fields and method
+  #movements = [];
+  #pin;
+
   constructor(owner, currency, pin) {
     this.owner = owner;
     this.currency = currency;
-    this.pin = pin;
-    this.movements = [];
-    this.locale = navigator.language;
+    this.#pin = pin;
     console.log(`Thanks for opening an account, ${this.owner}`);
   }
 
+  // Public interface (API)
+  getMovements() {
+    return this.#movements;
+  }
+
   deposit(val) {
-    this.movements.push(val);
+    this.#movements.push(val);
   }
   withdraw(val) {
     this.deposit(-val);
   }
+
+  #approveLoan(val) {
+    return true;
+  }
+  requestLoan(val) {
+    if (this.#approveLoan(val)) {
+      this.deposit(val);
+      console.log(`Loan approved`);
+    }
+  }
 }
 
 const acc1 = new Account('Aminul', 'GBP', 1111);
-acc1.movements.push(250);
-acc1.movements.push(-140);
 
 // Good Practice;
 acc1.deposit(12);
 acc1.withdraw(23);
-
+console.log(acc1.movements);
 console.log(acc1);
-console.log(acc1.pin);
+// console.log(acc1.#approvedLoan());
