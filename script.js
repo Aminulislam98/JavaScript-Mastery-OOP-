@@ -217,3 +217,4 @@ acc1.deposit(12);
 acc1.withdraw(23);
 
 console.log(acc1);
+console.log(acc1.pin);
