@@ -236,3 +236,4 @@ acc1.withdraw(23);
 console.log(acc1.movements);
 console.log(acc1);
 // console.log(acc1.#approvedLoan());
+// finished the section
